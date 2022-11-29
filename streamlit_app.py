@@ -39,4 +39,20 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do?
 # structured data is loaded into a table
 streamlit.dataframe(fruityvice_normalized)
+#!/usr/bin/env python
 import snowflake.connector
+
+# Gets the version
+ctx = snowflake.connector.connect(
+    user='<user_name>',
+    password='<password>',
+    account='<account_identifier>'
+    )
+cs = ctx.cursor()
+try:
+    cs.execute("SELECT current_version()")
+    one_row = cs.fetchone()
+    print(one_row[0])
+finally:
+    cs.close()
+ctx.close()
