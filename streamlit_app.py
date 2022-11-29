@@ -42,13 +42,4 @@ streamlit.dataframe(fruityvice_normalized)
 #!/usr/bin/env python
 import snowflake.connector
 
-# Gets the version
-ctx = snowflake.connector.connect(
-    user='NorbertF',
-    password='Norbi789@',
-    account='hl20052'
-    )
-cs = ctx.cursor()
-
-    cs.execute("SELECT current_version()")
 
