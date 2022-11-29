@@ -49,30 +49,17 @@ except URLError as e:
     streamlit.error()
     
     
-    
-    
-
-
-
-
-
-
-# write your own comment -what does the next line do? 
-# this line is expanding json to a more viewable format
-
-# write your own comment - what does this do?
-# structured data is loaded into a table
-
-
-
-# don't run anything past here while we troubleshoot
-streamlit.stop()
-
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
-my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
-add_my_fruit = streamlit.text_input('What fruit would you liek to add?', 'jackfruit')
-streamlit.write('Thanks for adding ', add_my_fruit)
-streamlit.dataframe(my_data_rows)
+#Snowflake-related functions
+def get_fruit_load_lsit():
+    with my_cnx.cursor() as my_cur:
+         my_cur.execute("select * from fruit_load_list")
+         return my_cur.fetchall()
+    
+# Add a button to load the fruit
+if streamlit.button('Get Fruit Load List'):
+    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+    my_data_rows = get_fruit_load_lsit()
+    streamlit.dataframe(my_data_rows)
+    
+    
