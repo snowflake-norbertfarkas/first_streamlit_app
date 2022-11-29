@@ -46,7 +46,7 @@ import snowflake.connector
 ctx = snowflake.connector.connect(
     user='NorbertF',
     password='Norbi789@',
-    account='hl20052.ca-central-1.aws'
+    account='hl20052'
     )
 cs = ctx.cursor()
 try:
