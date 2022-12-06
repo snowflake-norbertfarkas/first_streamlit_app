@@ -17,12 +17,12 @@ def get_stock_data(stock):
 # New Section to display yfinance api response
 streamlit.header("Yahoo Finance Data")
 try:
-  stock = streamlit.text_input('What stock would you like information about?')
-  if not stock:
+  stock_text = streamlit.text_input('What stock would you like information about?')
+  if not stock_text:
       streamlit.error("Please select a stock to get information.")
   else:
-    back_from_function = get_stock_data(stock)
-    streamlit.dataframe(back_from_function)
+    back_from_function = get_stock_data(stock_text)
+    streamlit.text(back_from_function)
     
 except URLError as e:
     streamlit.error()
