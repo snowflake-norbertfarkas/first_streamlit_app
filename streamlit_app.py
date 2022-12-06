@@ -28,8 +28,8 @@ except URLError as e:
     streamlit.error()
 
 
-# GetFacebookInformation = yahooFinance.Ticker("FB")
-# streamlit.header(pandas.json_normalize(GetFacebookInformation.info.json()))
+GetFacebookInformation = yahooFinance.Ticker("FB")
+streamlit.header(pandas.json_normalize(GetFacebookInformation.info.json()))
 
 
 streamlit.title('Zena\'s Amazing Athleisure Catalog')
