@@ -10,8 +10,8 @@ import requests
 #Create the repeatable code block (called a function)
 def get_stock_data(stock):
     yfinance_response = yahooFinance.Ticker(stock)
-    stock_normalized = pandas.json_normalize(yfinance_response.json())
-    return stock_normalized
+   
+    return yfinance_response
  
   
 # New Section to display yfinance api response
