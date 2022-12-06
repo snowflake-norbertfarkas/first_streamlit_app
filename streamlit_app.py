@@ -2,8 +2,32 @@ import streamlit
 import snowflake.connector
 import pandas
 import yfinance as yahooFinance
-GetFacebookInformation = yahooFinance.Ticker("FB")
-streamlit.header(GetFacebookInformation.info)
+
+
+ 
+#Create the repeatable code block (called a function)
+def get_stock_data(stock):
+    yfinance_response = yahooFinance.Ticker(stock)
+    stock_normalized = pandas.json_normalize(yfinance_response.json())
+    return stock_normalized
+ 
+  
+# New Section to display yfinance api response
+streamlit.header("Yahoo Finance Data")
+try:
+  stoc = streamlit.text_input('What stock would you like information about?')
+  if not stock:
+      streamlit.error("Please select a stock to get information.")
+  else:
+    back_from_function = get_stock_data(stock)
+    streamlit.dataframe(back_from_function)
+    
+except URLError as e:
+    streamlit.error()
+
+
+    GetFacebookInformation = yahooFinance.Ticker("FB")
+streamlit.header(pandas.json_normalize(GetFacebookInformation.info.json()))
 
 
 streamlit.title('Zena\'s Amazing Athleisure Catalog')
