@@ -22,7 +22,10 @@ try:
       streamlit.error("Please select a stock to get information.")
   else:
     back_from_function = get_stock_data(stock_text)
-    streamlit.text(back_from_function.info)
+    stremlit.header(back_from_function.info.shortName)
+    streamlit.title(back_from_function.info.symbol)
+    streamlit.text(back_from_function.info.currentPrice)
+    
     
 except URLError as e:
     streamlit.error()
