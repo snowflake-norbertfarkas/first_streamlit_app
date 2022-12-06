@@ -2,6 +2,8 @@ import streamlit
 import snowflake.connector
 import pandas
 import yfinance as yahooFinance
+from urllib.error import URLError
+import requests
 
 
  
