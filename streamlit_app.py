@@ -9,7 +9,7 @@ import requests
  
 #Create the repeatable code block (called a function)
 def get_stock_data(stock):
-    yfinance_response = yt.Ticker(stock)
+   stock_data = stock
    
     return yfinance_response
  
@@ -22,7 +22,7 @@ try:
       streamlit.error("Please select a stock to get information.")
   else:
     back_from_function = get_stock_data(stock_text)
-    stremlit.header(back_from_function.info)
+    stremlit.header(back_from_function)
     
     
     
