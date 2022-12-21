@@ -24,12 +24,11 @@ try:
     stremlit.header(back_from_function)
     
     
-    
 except URLError as e:
     streamlit.error()
 
-GetFacebookInformation = yahooFinance.Ticker(stock_text)
-streamlit.header(GetFacebookInformation.info)
+# GetFacebookInformation = yahooFinance.Ticker(stock_text)
+# streamlit.header(GetFacebookInformation.info)
 
 
 streamlit.title('Zena\'s Amazing Athleisure Catalog')
