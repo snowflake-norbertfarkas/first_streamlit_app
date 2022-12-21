@@ -11,7 +11,7 @@ import requests
 def get_stock_data(stock):
    stock_data = stock
    
-    return yfinance_response
+    return stock_data
  
   
 # New Section to display yfinance api response
