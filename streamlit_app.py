@@ -1,7 +1,7 @@
 import streamlit
 import snowflake.connector
 import pandas
-import yfinance as yahooFinance
+import yfinance as yt
 from urllib.error import URLError
 import requests
 
@@ -9,7 +9,7 @@ import requests
  
 #Create the repeatable code block (called a function)
 def get_stock_data(stock):
-    yfinance_response = yahooFinance.Ticker(stock)
+    yfinance_response = yt.Ticker(stock)
    
     return yfinance_response
  
@@ -30,8 +30,8 @@ except URLError as e:
     streamlit.error()
 
 
-GetFacebookInformation = yahooFinance.Ticker("FB")
-streamlit.header(GetFacebookInformation.info)
+# GetFacebookInformation = yahooFinance.Ticker("FB")
+# streamlit.header(GetFacebookInformation.info)
 
 
 streamlit.title('Zena\'s Amazing Athleisure Catalog')
