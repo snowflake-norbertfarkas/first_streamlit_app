@@ -10,7 +10,6 @@ import requests
 #Create the repeatable code block (called a function)
 def get_stock_data(stock):
    stock_data = stock
-   
     return stock_data
  
   
